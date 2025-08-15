@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Surprise Site 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #fff0f5;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      padding: 40px;
+      line-height: 1.6;
+      color: #333;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .clickable {
+      position: absolute;
+      cursor: pointer;
+      font-size: 1.2em;
+      padding: 10px;
+      background-color: #ffeb3b;
+      border-radius: 8px;
+    }
+
+    #text1 { top: 20px; right: 20px; }
+    #text2 { top: 50%; left: 20px; transform: translateY(-50%); display: none; }
+    #text3 { bottom: 20px; right: 20px; display: none; }
+
+    #finalMessage {
+      display: none;
+      white-space: pre-wrap;
+      font-size: 1.1em;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #ff69b4;
+    }
+  </style>
+</head>
+<body>
+  <!-- Troll Click Sequence -->
+  <div id="text1" class="clickable">click mo to ok</div>
+  <div id="text2" class="clickable">de dito</div>
+  <div id="text3" class="clickable">de dito talaga</div>
+
+  <!-- Final Message Section -->
+  <div id="finalMessage">
+    <h1>helloowwwe :]</h1>
+    <div id="typedText"></div>
+  </div>
+
+  <script>
+    const text1 = document.getElementById('text1');
+    const text2 = document.getElementById('text2');
+    const text3 = document.getElementById('text3');
+    const finalMessage = document.getElementById('finalMessage');
+    const typedText = document.getElementById('typedText');
+
+    text1.onclick = () => {
+      text1.style.display = 'none';
+      text2.style.display = 'block';
+    };
+
+    text2.onclick = () => {
+      text2.style.display = 'none';
+      text3.style.display = 'block';
+    };
+
+    text3.onclick = () => {
+      text3.style.display = 'none';
+      finalMessage.style.display = 'block';
+      typeWriter();
+    };
+
+    const message = `
+wala lang, i wanted to make one lang for you ngayon kasi i can't sleep, and i miz u 💔
+
+i made this to cheer you up lang, kasi diba nakwento mo, sabay-sabay deadline niyo next week sa school 😞😞 so, i wanted to help by making this lang ahahaha ang cornt koh talagah.. pero suri maikli lang, kc ano la lang hehe
+
+good luck next weekkk, broo. i hope you'll feel betterr whenever you read this, and mas magkaroon ka ng energy to finish what you have to finish by next week 😁😁 i hope you still get enough sleepp and proper meals. pati don't forget 2 rest ah, try not to stress urself too much 👊🏻👊🏻
+
+byeee good luck ulit 🤟🏻🩷
+`;
+
+    let i = 0;
+    const speed = 35;
+
+    function typeWriter() {
+      if (i < message.length) {
+        typedText.innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+  </script>
+</body>
+</html> 
